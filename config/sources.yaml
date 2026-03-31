@@ -6,21 +6,70 @@ public_api:
   api_key_env: "SUPABASE_PUBLISHABLE_KEY"
   page_size: 200
   timeout_seconds: 30
+# 补充OpenAlex（启用，提升期刊/关键词检索覆盖）
 openalex:
-  enabled: false
-  mailto: "you@example.com"
+  enabled: true
+  mailto: "wanhaixu@cibr.ac.cn"  # 替换为你的邮箱
 crossref:
   enabled: true
-  mailto: "you@example.com"
+  mailto: "wanhaixu@cibr.ac.cn"  # 替换为你的邮箱
+  # 新增：Crossref检索的目标期刊（生物光子学核心）
+  target_journals:
+    - name: "Nature Photonics"
+      url: "https://www.nature.com/nphoton/"
+    - name: "Nature Methods"
+      url: "https://www.nature.com/nmeth/"
+    - name: "Optica"
+      url: "https://www.optica.org/journal/optica"
+    - name: "ACS Photonics"
+      url: "https://pubs.acs.org/journal/apchd5"
+    - name: "Biomedical Optics Express"
+      url: "https://www.osapublishing.org/boe/"
+    - name: "Journal of Biomedical Optics"
+      url: "https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics"
+    - name: "Light: Science & Applications"
+      url: "https://www.nature.com/lsa/"
+    - name: "Neurophotonics"
+      url: "https://www.osapublishing.org/nph/"
+  # 新增：Crossref检索的核心关键词（中英文覆盖）
+  target_keywords:
+    - "microscopy"
+    - "light sheet"
+    - "fluorescence imaging"
+    - "双光子"
+    - "two-photon"  # 英文等效关键词（提升检索精度）
+    - "电压成像"
+    - "voltage imaging"  # 英文等效关键词
+    - "头戴式显微镜"
+    - "head-mounted microscope"  # 英文等效关键词
+    - "in vivo imaging"  # 补充：活体成像（相关延伸）
+    - "optical imaging"  # 补充：光学成像（核心领域）
 arxiv:
   enabled: true
-  categories: ["q-bio.GN", "cs.LG"]
+  # 扩展arxiv分类：覆盖物理光学、生物物理、神经科学
+  categories: ["q-bio.GN", "cs.LG", "physics.optics", "q-bio.NC", "physics.bio-ph"]
+  # 新增：arxiv检索的关键词过滤
+  target_keywords:
+    - "microscopy"
+    - "light sheet"
+    - "fluorescence imaging"
+    - "two-photon"
+    - "voltage imaging"
+    - "head-mounted microscope"
 biorxiv:
   enabled: true
   from_days_ago: 7
+  # 新增：bioRxiv预印本检索关键词
+  target_keywords:
+    - "microscopy"
+    - "light sheet"
+    - "fluorescence imaging"
+    - "two-photon"
+    - "voltage imaging"
+    - "head-mounted microscope"
 medrxiv:
-  enabled: false
+  enabled: false  # 若关注临床方向可改为true
   from_days_ago: 7
 altmetric:
-  enabled: false
+  enabled: false  # 若有API_KEY可改为true
   api_key_env: "ALTMETRIC_KEY"
