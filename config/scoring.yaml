@@ -1,11 +1,11 @@
 weights:
-  similarity: 0.45
+  similarity: 0.40  # 降低相似度权重，提升期刊质量权重
   recency: 0.15
   citations: 0.15
   altmetric: 0.10
-  journal_quality: 0.04
+  journal_quality: 0.08  # 提升期刊质量权重（匹配核心期刊筛选）
   author_bonus: 0.02
-  venue_bonus: 0.04
+  venue_bonus: 0.08  # 提升期刊/场馆加分权重（白名单期刊优先）
 thresholds:
   must_read: 0.75
   consider: 0.5
@@ -13,5 +13,16 @@ decay_days:
   fast: 3
   medium: 7
   slow: 30
-whitelist_authors: []
-whitelist_venues: []
+whitelist_authors: []  # 可添加你关注的核心作者（如领域大牛）
+# 新增：生物光子学核心期刊白名单（匹配sources.yaml的target_journals）
+whitelist_venues:
+  - "Nature Photonics"
+  - "Nature Methods"
+  - "Optica"
+  - "ACS Photonics"
+  - "Biomedical Optics Express"
+  - "Journal of Biomedical Optics"
+  - "Light: Science & Applications"
+  - "Neurophotonics"
+  - "Cell Reports Methods"
+  - "Advanced Photonics"
