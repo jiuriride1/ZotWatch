@@ -14,4 +14,26 @@ decay_days:
   medium: 7
   slow: 30
 whitelist_authors: []
-whitelist_venues: []
+whitelist_venues: [
+# 顶级综合期刊
+  - "Nature Photonics"
+  - "Nature Methods"
+  - "Nature Neuroscience"
+  - "Science"
+  - "Cell"
+  - "eLife"
+  - "PNAS"
+  - "Neuron"
+  
+  # 光学与光子学专业期刊
+  - "Optics Express"
+  - "Biomedical Optics Express"
+  - "Journal of Biomedical Optics"
+  - "Light: Science & Applications"
+  - "Optica"
+  
+  # 跨学科期刊
+  - "Scientific Reports"
+  - "Advanced Biology"
+  - "Frontiers in Neuroscience"
+]
